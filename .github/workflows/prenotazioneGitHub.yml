@@ -1,0 +1,32 @@
+name: Prenotazione Automatica GitHub
+
+on:
+  schedule:
+    - cron: '0 5 * * *'  # 7:00 ora italiana
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del codice
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.10
+
+      - name: Installa dipendenze
+        run: pip install -r requirementsGitHub.txt
+
+      - name: Installa Firefox e Geckodriver
+        run: |
+          sudo apt update
+          sudo apt install -y firefox-esr
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.34.0/geckodriver-v0.34.0-linux64.tar.gz
+          tar -xvzf geckodriver-v0.34.0-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin
+
+      - name: Esegui lo script
+        run: python prenotazioneGitHub.py
