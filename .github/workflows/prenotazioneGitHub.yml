@@ -2,7 +2,7 @@ name: Prenotazione Automatica GitHub
 
 on:
   schedule:
-    - cron: '0 5 * * *'  # 7:00 ora italiana
+  - cron: '5 23 * * *'  # 01:05 ora italiana
   workflow_dispatch:
 
 jobs:
