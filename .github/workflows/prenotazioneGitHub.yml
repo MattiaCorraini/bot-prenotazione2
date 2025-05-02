@@ -23,15 +23,15 @@ jobs:
       - name: Installa Firefox e Geckodriver
         run: |
           sudo apt update
-          sudo apt install -y wget tar
+          sudo apt install -y wget tar libdbus-glib-1-2
 
-          # Scarica correttamente Firefox seguendo il redirect
-          wget --content-disposition "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=it"
-          tar xjf firefox-*.tar.bz2
+          # Scarica e installa Firefox (.tar.xz)
+          wget -O firefox.tar.xz "https://download.mozilla.org/?product=firefox-latest&os=linux64&lang=it"
+          tar -xf firefox.tar.xz
           sudo mv firefox /opt/firefox
           sudo ln -sf /opt/firefox/firefox /usr/bin/firefox
 
-          # Installa Geckodriver
+          # Scarica e installa Geckodriver
           wget https://github.com/mozilla/geckodriver/releases/download/v0.34.0/geckodriver-v0.34.0-linux64.tar.gz
           tar -xvzf geckodriver-v0.34.0-linux64.tar.gz
           sudo mv geckodriver /usr/local/bin
