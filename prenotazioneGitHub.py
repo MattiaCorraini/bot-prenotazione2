@@ -7,6 +7,7 @@ import time
 
 options = Options()
 options.add_argument("--headless")
+options.binary_location = "/usr/bin/firefox"
 driver = webdriver.Firefox(options=options)
 wait = WebDriverWait(driver, 30)
 
