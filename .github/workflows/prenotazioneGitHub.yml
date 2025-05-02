@@ -1,5 +1,5 @@
 name: Prenotazione Automatica GitHub
-
+# Forzo update per invalidare cache
 on:
   schedule:
     - cron: '0 5 * * *'  # 7:00 ora italiana
