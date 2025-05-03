@@ -39,7 +39,7 @@ try:
     print("📝 Compilo il modulo...")
     inputs = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "input")))
     dati = [
-        "RSSMRA85L10A162L",
+        "RSHMRA85L10A162L",
         "Mattia Corraini",
         "mattiacorraini65@gmail.com"
     ]
